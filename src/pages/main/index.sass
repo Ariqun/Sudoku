@@ -1,0 +1,134 @@
+@import '../../components/ui'
+	
+.main_page
+	padding-top: 70px
+	.sudoku_wrapper
+		position: relative
+		display: flex
+		justify-content: center
+		.overlay
+			position: absolute
+			width: 100%
+			height: 100%
+			background: white
+			mix-blend-mode: color
+			z-index: 2
+		.sudoku
+			table
+				color: black
+				border-collapse: collapse
+				border: 1px solid darkgray
+				background: white
+				tbody
+					tr
+						&:first-of-type
+							td
+								border-top: 2px solid black
+						&:nth-of-type(3n)
+							td
+								border-bottom: 2px solid black
+						td
+							width: 50px
+							height: 50px
+							cursor: pointer
+							text-align: center
+							font-size: 25px
+							border: 1px solid darkgray
+							&:first-of-type
+								border-left: 2px solid black
+							&:last-of-type
+								border-right: 2px solid black
+							&:nth-of-type(3n)
+								border-right: 2px solid black
+							.notes
+								display: flex
+								flex-wrap: wrap
+								font-size: 11px
+								color: #444343
+								.note
+									width: 15px
+									height: 15px
+						td.picked
+							// background: #eaeef4
+							background: #d8e5f9
+						td.current
+							// background: #c3d9fc
+							background: #abc8f7
+						td.same
+							background: #99bcf5
+						td.error
+							background: rgba(241, 169, 160, 1)
+						td.current_error
+							color: tomato
+							background: #c3d9fc
+		.panel
+			display: flex
+			flex-direction: column
+			justify-content: center
+			padding: 0 15px
+			.rules
+				display: flex
+				justify-content: space-evenly
+				padding: 25px 0
+				.rule
+					display: flex
+					justify-content: center
+					align-items: center
+					width: 70px
+					height: 70px
+					cursor: pointer
+					transition: 0.5s ease all
+					border-radius: 50%
+					border: 2px solid #c3d9fc
+					&:hover
+						border-color: $color-orange
+				.rule.active
+					border-color: $color-orange
+			.numbers
+				display: flex
+				flex-direction: column
+				.numbers_row
+					display: flex
+					.numbers_cell
+						position: relative
+						display: flex
+						justify-content: center
+						align-items: center
+						width: 100px
+						height: 100px
+						color: $color-deepskyblue
+						font-size: 30px
+						margin: 5px
+						border-radius: 10px
+						background: #eaeef4
+						&:hover
+							background: #c3d9fc
+						&:active
+							background: #b8d3ff
+						.value
+							display: flex
+							justify-content: center
+							align-items: center
+							width: 100%
+							height: 100%
+							cursor: pointer
+					.overlay_key
+						position: absolute
+						width: 100%
+						height: 100%
+						border-radius: 10px
+						mix-blend-mode: color
+						background: white
+						z-index: 1
+		.back
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			padding: 50px 0
+			.win
+				padding-bottom: 15px
+			a
+				display: block
+				color: white
+				text-decoration: none
