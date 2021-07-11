@@ -1,3 +1,6 @@
+// Дефолтные числа преведены к строке для того, чтобы отделять их от пользовательских цифр.
+// Дефолтные числа имеют вид 'число', пользовательские - число.
+
 const solveSudoku = (matrix) => {
 	const size = 9;
 
@@ -12,7 +15,7 @@ const solveSudoku = (matrix) => {
 
 			if (isValid) {
 				const [row, cell] = currentPosition;
-				matrix[row][cell] = currentNum;
+				matrix[row][cell] = currentNum.toString();
 
 				if (solve()) return true;
 

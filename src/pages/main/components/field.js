@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {checkCell, checkNotes} from './validate';
 
 const Field = ({matrix, currentCell, setCurrentCell}) => {
