@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import BlueBtn from '../btns/blueBtn';
 
 import {deleteProgressFromLS} from '../localStorage/progress';
 import './index.sass';
@@ -27,7 +28,12 @@ const Header = ({history}) => {
 					<option value="hard">Сложный</option>
 					<option value="expert">Экспертный</option>
 				</select>
-				<button onClick={() => startGame()}>Новая игра</button>
+
+				<BlueBtn text="Новая игра" func={startGame} />
+
+				<div className="btn">
+					<Link to={'/decision'}>Решить свой судоку</Link>
+				</div>
 			</div>
 		</div>
 	)

@@ -1,6 +1,6 @@
 @import '../../components/ui'
 	
-.main_page
+.main_page, .decision_page
 	padding-top: 70px
 	.sudoku_wrapper
 		position: relative
@@ -49,10 +49,8 @@
 									width: 15px
 									height: 15px
 						td.picked
-							// background: #eaeef4
 							background: #d8e5f9
 						td.current
-							// background: #c3d9fc
 							background: #abc8f7
 						td.same
 							background: #99bcf5
@@ -120,15 +118,7 @@
 						mix-blend-mode: color
 						background: white
 						z-index: 1
-		.back
-			display: flex
-			flex-direction: column
-			justify-content: center
-			align-items: center
-			padding: 50px 0
-			.win
-				padding-bottom: 15px
-			a
-				display: block
-				color: white
-				text-decoration: none
+	.btn
+		width: 150px
+		text-align: center
+		margin: 20px auto

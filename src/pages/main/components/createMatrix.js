@@ -13,6 +13,8 @@ const createField = (difficult) => {
 		['.', '.', '.', '.', '.', '.', '.', '.', '.']
 	];
 
+	if (difficult === 'empty') return matrix;
+
 	const solvedSudoku = solveSudoku(matrix);
 	const positions = getClearPositions(difficult);
 	const field = clearCells(solvedSudoku, positions);

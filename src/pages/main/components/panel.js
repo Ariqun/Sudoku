@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Panel = ({setNumber, checkNoteMode, isNoteMode, matrix}) => {
+const Panel = ({setNumber, checkNoteMode = null, isNoteMode = null, matrix = []}) => {
 	const numbers = [
 		[1, 2, 3],
 		[4, 5, 6],
@@ -41,15 +41,23 @@ const Panel = ({setNumber, checkNoteMode, isNoteMode, matrix}) => {
 		return <div className="numbers_row" key={i}>{cell}</div>
 	})
 
+	const createNoteIcon = () => {
+		if (isNoteMode === null) return null;
+
+		return(
+			<div onClick={() => checkNoteMode()} className={isNoteMode ? "rule notes active" : "rule notes"} title="Режим заметок" >
+				<img src={`${process.env.PUBLIC_URL}/assets/icons/notes.png`} alt="notes"/>
+			</div>
+		)
+	}
+
 	return(
 		<div className="panel">
 			<div className="rules">
 				<div onClick={() => setNumber('.')} className="rule clear">
 					<img src={`${process.env.PUBLIC_URL}/assets/icons/clear.png`} alt="clear" title="Очистить ячейку" />
 				</div>
-				<div onClick={() => checkNoteMode()} className={isNoteMode ? "rule notes active" : "rule notes"} title="Режим заметок" >
-					<img src={`${process.env.PUBLIC_URL}/assets/icons/notes.png`} alt="notes"/>
-				</div>
+				{createNoteIcon()}
 			</div>
 
 			<div className="numbers">

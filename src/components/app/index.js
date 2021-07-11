@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 
 import Header from '../header';
 import Main from '../../pages/main';
+import Decision from '../../pages/decision';
 import './index.sass';
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
 		<div className="App">
 			<Header />
 
-			<Route path="/" render={() => <Main />} />
+			<Route path="/" exact render={() => <Main />} />
+			<Route path="/decision" render={() => <Decision />} />
 		</div>
 	);
 }
