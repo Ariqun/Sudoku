@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Panel = ({setNumber, reloadGame, checkNoteMode, isNoteMode, matrix}) => {
+const Panel = ({setNumber, checkNoteMode, isNoteMode, matrix}) => {
 	const numbers = [
 		[1, 2, 3],
 		[4, 5, 6],
@@ -44,9 +44,6 @@ const Panel = ({setNumber, reloadGame, checkNoteMode, isNoteMode, matrix}) => {
 	return(
 		<div className="panel">
 			<div className="rules">
-				<div onClick={() => reloadGame()} className="rule reload" title="Сбросить игру">
-					<img src={`${process.env.PUBLIC_URL}/assets/icons/reload.png`} alt="reload"/>
-				</div>
 				<div onClick={() => setNumber('.')} className="rule clear">
 					<img src={`${process.env.PUBLIC_URL}/assets/icons/clear.png`} alt="clear" title="Очистить ячейку" />
 				</div>

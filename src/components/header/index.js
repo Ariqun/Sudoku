@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 
+import {deleteProgressFromLS} from '../localStorage/progress';
 import './index.sass';
 
 const Header = ({history}) => {
@@ -9,6 +10,8 @@ const Header = ({history}) => {
 	const changeDifficult = (e) => setDifficult(e.target.value);
 
 	const startGame = () => {
+		deleteProgressFromLS();
+
 		history.push({
 			pathname: '/',
 			difficult: difficult

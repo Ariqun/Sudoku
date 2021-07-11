@@ -20,7 +20,7 @@ const createField = (difficult) => {
 	return field;
 }
 
-const countOfFilledCells = (difficult) => {
+const countOfEmptyCells = (difficult) => {
 	if (difficult === 'easy') return 50;
 	if (difficult === 'medium') return 55;
 	if (difficult === 'hard') return 60;
@@ -36,7 +36,7 @@ const getRandomNum = (positions) => {
 }
 
 const getClearPositions = (difficult) => {
-	const count = countOfFilledCells(difficult);
+	const count = countOfEmptyCells(difficult);
 	const positions = [];
 
 	for (let i = 1; i <= count; i++) {

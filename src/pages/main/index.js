@@ -5,6 +5,8 @@ import createMatrix from './components/createMatrix';
 import Field from './components/field';
 import Panel from './components/panel';
 import {checkWin} from './components/validate';
+import {deleteProgressFromLS, pushProgressInLS} from '../../components/localStorage/progress';
+
 import './index.sass';
 
 const Main = ({location}) => {
@@ -16,16 +18,21 @@ const Main = ({location}) => {
 	const [isWin, setWin] = useState(false);
 
 	useEffect(() => {
-		setMatrix(createMatrix(difficult));
-		setCurrentCell([]);
-		setNoteMode(false);
-	}, [location])
-
-	const noteMap = ['', '', '', '', '', '', '', '', ''];
+		const field = JSON.parse(localStorage.getItem(`sudoku_field`));
+		
+		if (field) {
+			setMatrix(field);
+		} else {
+			setMatrix(createMatrix(difficult));
+			setCurrentCell([]);
+			setNoteMode(false);
+		}
+	}, [location]);
 
 	const setNumber = (num) => {
 		if (currentCell.length === 0) return;
 
+		const noteMap = ['', '', '', '', '', '', '', '', ''];
 		const [row, cell] = currentCell;
 		let arr = [...matrix];
 		let currentSocket = arr[row][cell];
@@ -51,14 +58,8 @@ const Main = ({location}) => {
 			}
 			
 			setMatrix(arr);
-			// pushProgressInLS(arr, difficult, id);
+			pushProgressInLS(arr);
 		}
-	}
-
-	const reloadGame = () => {
-		setMatrix(matrix);
-		// pushProgressInLS(sudoku, difficult, id);
-		setNoteMode(false);
 	}
 
 	const checkNoteMode = () => {
@@ -67,8 +68,7 @@ const Main = ({location}) => {
 	}
 
 	if (checkWin(matrix) && isWin !== true) {
-		// pushProgressInLS(sudokuMap, difficult, id, true);
-		console.log('win');
+		deleteProgressFromLS();
 		setWin(true);
 	}
 
@@ -80,9 +80,8 @@ const Main = ({location}) => {
 
 					<Field matrix={matrix}  currentCell={currentCell} setCurrentCell={setCurrentCell}/>
 
-					<Panel setNumber={setNumber} 
-						reloadGame={reloadGame} 
-						checkNoteMode={checkNoteMode} 
+					<Panel setNumber={setNumber}
+						checkNoteMode={checkNoteMode}
 						isNoteMode={isNoteMode}
 						matrix={matrix}
 					/>
