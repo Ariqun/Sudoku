@@ -14,22 +14,23 @@ const Decision = () => {
 	const [isError, setError] = useState(false);
 	const [isSolved, setSolved] = useState(false);
 
-	const setNumber = (num) => {
-		console.log(num, typeof num)
-		if (currentCell.length === 0) return;
-		if (![1, 2, 3, 4, 5, 6, 7, 8, 9, '.'].includes(num)) return;
+	const setNumber = (key) => {
+		const validKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'Delete', 'Backspace'];
+
+		if (currentCell.length === 0 || !validKeys.includes(key)) return;
 		
+		const content = ['.', 'Delete', 'Backspace'].includes(key) ? '.' : +key;
 		const [row, cell] = currentCell;
 		let arr = [...matrix];
 
-		arr[row][cell] = num;
+		arr[row][cell] = content;
 
-		const check = checkCell(matrix, [row, cell], num);
+		const check = checkCell(matrix, [row, cell], content);
 
 		if (!check) setError(true);
 		else setError(false);
 
-		setCurrentCell([row, cell, num]);
+		setCurrentCell([row, cell, content]);
 		setMatrix(arr);
 	}
 

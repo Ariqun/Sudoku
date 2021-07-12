@@ -29,33 +29,35 @@ const Main = ({location}) => {
 		}
 	}, [location]);
 
-	const setNumber = (num) => {
-		if (currentCell.length === 0) return;
-		if (![1, 2, 3, 4, 5, 6, 7, 8, 9, '.'].includes(num)) return;
+	const setNumber = (key) => {
+		const validKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'Delete', 'Backspace'];
 
+		if (currentCell.length === 0 || !validKeys.includes(key)) return;
+
+		const content = ['.', 'Delete', 'Backspace'].includes(key) ? '.' : +key;
 		const noteMap = ['', '', '', '', '', '', '', '', ''];
 		const [row, cell] = currentCell;
 		let arr = [...matrix];
 		let currentSocket = arr[row][cell];
 
 		if (currentSocket === '.' || typeof currentSocket === 'number' || typeof currentSocket === 'object') {
-			if (isNoteMode && num !== '.') {
+			if (isNoteMode && content !== '.') {
 				let notes = [...noteMap];
 
 				if (typeof currentSocket === 'object') {
 					notes = [...arr[row][cell]];
 				}
 
-				if (notes[num - 1] === num) {
-					notes[num - 1] = '';
+				if (notes[content - 1] === content) {
+					notes[content - 1] = '';
 				} else {
-					notes[num - 1] = num;
+					notes[content - 1] = content;
 				}
 
 				arr[row][cell] = notes;
 			} else {
-				arr[row][cell] = num;
-				setCurrentCell([row, cell, num]);
+				arr[row][cell] = content;
+				setCurrentCell([row, cell, content]);
 			}
 			
 			setMatrix(arr);

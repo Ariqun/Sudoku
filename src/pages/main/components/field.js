@@ -39,7 +39,7 @@ const Field = ({matrix, currentCell, setCurrentCell, setNumber}) => {
 
 			return(
 				<td onClick={() => setCurrentCell([i, j, content])} 
-					onKeyPress={(e) => setNumber(+e.key)} 
+					onKeyDown={(e) => setNumber(e.key)} 
 					className={className} 
 					key={`${i}_${j}`} 
 					tabIndex="0"
