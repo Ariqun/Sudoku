@@ -31,6 +31,7 @@ const Main = ({location}) => {
 
 	const setNumber = (num) => {
 		if (currentCell.length === 0) return;
+		if (![1, 2, 3, 4, 5, 6, 7, 8, 9, '.'].includes(num)) return;
 
 		const noteMap = ['', '', '', '', '', '', '', '', ''];
 		const [row, cell] = currentCell;
@@ -78,7 +79,11 @@ const Main = ({location}) => {
 				<div className="sudoku_wrapper">
 					<div className={isWin ? "overlay" : "hidden"} />
 
-					<Field matrix={matrix}  currentCell={currentCell} setCurrentCell={setCurrentCell}/>
+					<Field matrix={matrix}  
+						   currentCell={currentCell} 
+						   setCurrentCell={setCurrentCell} 
+						   setNumber={setNumber}
+					/>
 
 					<Panel setNumber={setNumber}
 						checkNoteMode={checkNoteMode}

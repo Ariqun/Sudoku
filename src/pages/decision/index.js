@@ -15,8 +15,10 @@ const Decision = () => {
 	const [isSolved, setSolved] = useState(false);
 
 	const setNumber = (num) => {
+		console.log(num, typeof num)
 		if (currentCell.length === 0) return;
-
+		if (![1, 2, 3, 4, 5, 6, 7, 8, 9, '.'].includes(num)) return;
+		
 		const [row, cell] = currentCell;
 		let arr = [...matrix];
 
@@ -51,7 +53,11 @@ const Decision = () => {
 				<div className="sudoku_wrapper">
 					<div className={isSolved ? "overlay" : "hidden"} />
 
-					<Field matrix={matrix} currentCell={currentCell} setCurrentCell={setCurrentCell}/>
+					<Field matrix={matrix} 
+						   currentCell={currentCell} 
+						   setCurrentCell={setCurrentCell} 
+						   setNumber={setNumber}
+					/>
 					<Panel setNumber={setNumber} />
 				</div>
 
