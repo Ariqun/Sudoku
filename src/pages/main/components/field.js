@@ -1,8 +1,12 @@
+// Т.к. цифры, введеные пользователем, имеют тип 'number', то
+// if (decision && typeof content === 'number') className += ' user_digit' 
+// выделяет эти цифры на фоне тех, что были подставленны алгоритмом при автоматическом решении судоку.
+
 import React from 'react';
 
 import {checkCell, checkNotes} from './validate';
 
-const Field = ({matrix, currentCell, setCurrentCell, setNumber}) => {
+const Field = ({matrix, currentCell, setCurrentCell, setNumber, decision = false}) => {
 	const drawNotes = (socket, r, c) => {
 		const newSocket = checkNotes(matrix, r, c, socket);
 
@@ -36,6 +40,7 @@ const Field = ({matrix, currentCell, setCurrentCell, setNumber}) => {
 			if (num !== '' && num == content && (row !== i || cell !== j)) className += ' same';
 			if (!checkCell(matrix, pos, content)) className += ' error';
 			if (row === i && cell === j && !checkCell(matrix, pos, content)) className += ' current_error';
+			if (decision && typeof content === 'number') className += ' user_digit';
 
 			return(
 				<td onClick={() => setCurrentCell([i, j, content])} 

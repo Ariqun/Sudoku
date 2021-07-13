@@ -72,6 +72,7 @@ const Main = ({location}) => {
 
 	if (checkWin(matrix) && isWin !== true) {
 		deleteProgressFromLS();
+		setCurrentCell([]);
 		setWin(true);
 	}
 
@@ -88,9 +89,9 @@ const Main = ({location}) => {
 					/>
 
 					<Panel setNumber={setNumber}
-						checkNoteMode={checkNoteMode}
-						isNoteMode={isNoteMode}
-						matrix={matrix}
+						   checkNoteMode={checkNoteMode}
+						   isNoteMode={isNoteMode}
+						   matrix={matrix}
 					/>
 				</div>
 			</div>

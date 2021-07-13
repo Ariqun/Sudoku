@@ -32,7 +32,7 @@ const Header = ({history}) => {
 				<BlueBtn text="Новая игра" func={startGame} />
 
 				<div className="btn">
-					<Link to={'/decision'}>Решить свой судоку</Link>
+					<Link to={'/decision'}>Решить свое судоку</Link>
 				</div>
 			</div>
 		</div>

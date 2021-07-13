@@ -36,7 +36,7 @@ const Decision = () => {
 
 	const fillSudoku = () => {
 		const filledSudoku = solveSudoku(matrix);
-		
+		console.log(filledSudoku)
 		setCurrentCell([]);
 		setSolved(true);
 		setMatrix(filledSudoku);
@@ -58,6 +58,7 @@ const Decision = () => {
 						   currentCell={currentCell} 
 						   setCurrentCell={setCurrentCell} 
 						   setNumber={setNumber}
+						   decision
 					/>
 					<Panel setNumber={setNumber} />
 				</div>
