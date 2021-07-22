@@ -27,7 +27,7 @@ const Main = ({location}) => {
 			setCurrentCell([]);
 			setNoteMode(false);
 		}
-	}, [location]);
+	}, [location, difficult]);
 
 	const setNumber = (key) => {
 		const validKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'Delete', 'Backspace'];

@@ -31,7 +31,7 @@ const Panel = ({setNumber, checkNoteMode = null, isNoteMode = null, matrix = []}
 				<div className="numbers_cell" key={num}>
 					<div className={isNumDone ? "overlay_key" : "hidden"}/>
 
-					<div onClick={() => setNumber(num)} className="value">
+					<div onClick={() => setNumber(num.toString())} className="value">
 						{isNumDone ? '' : num}
 					</div>
 				</div>
