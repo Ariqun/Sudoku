@@ -1,0 +1,43 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rules {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px 0;
+}
+
+.rule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #c3d9fc;
+  transition: 0.5s ease all;
+
+  &:hover {
+    border-color: var(--color-orange);
+  }
+}
+
+.active {
+  border-color: var(--color-orange);
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  color: #444343;
+  font-size: 11px;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+}

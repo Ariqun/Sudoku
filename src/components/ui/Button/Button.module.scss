@@ -1,0 +1,13 @@
+.component {
+  cursor: pointer;
+  outline: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background: #0072e3;
+
+  &:hover {
+    background: #0259af;
+  }
+}

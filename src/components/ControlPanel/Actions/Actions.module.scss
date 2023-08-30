@@ -1,0 +1,25 @@
+.component {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px 0;
+}
+
+.mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #c3d9fc;
+  transition: 0.5s ease all;
+
+  &:hover {
+    border-color: var(--color-orange);
+  }
+}
+
+.active {
+  border-color: var(--color-orange);
+}

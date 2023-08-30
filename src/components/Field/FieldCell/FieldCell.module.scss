@@ -1,0 +1,47 @@
+.component {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  font-size: 25px;
+  border: 1px solid darkgray;
+
+  &:first-of-type {
+    border-left: 2px solid black
+  }
+
+  &:last-of-type {
+    border-right: 2px solid black;
+  }
+
+  &:nth-of-type(3n) {
+    border-right: 2px solid black;
+  }
+}
+
+.picked {
+  background: #d8e5f9;
+}
+
+.current {
+  background: #abc8f7;
+}
+
+.same {
+  background: #99bcf5;
+}
+
+.error {
+  background: rgba(241, 169, 160, 1);
+}
+
+.current_error {
+  color: tomato;
+  background: #c3d9fc;
+}
+
+.user_digit {
+  color: white;
+  background: skyblue;
+}
