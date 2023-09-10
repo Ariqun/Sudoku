@@ -6,7 +6,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: pull
+      - name: pull and build
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -15,7 +15,7 @@ jobs:
           script: |
             cd ~/../Sudoku
             git pull
-          run: yarn build
+            yarn build
       - name: copy
         uses: appleboy/ssh-action@master
         with:
@@ -23,5 +23,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            rm -r ../var/www/ariqun_ru/data/www/ariqun.ru/*
-            mv build/* ../var/www/ariqun_ru/data/www/ariqun.ru/
+            cd ~/..
+            rm -r /var/www/ariqun_ru/data/www/ariqun.ru/*
+            mv Sudoku/build/* /var/www/ariqun_ru/data/www/ariqun.ru/
