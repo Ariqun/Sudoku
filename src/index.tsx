@@ -11,7 +11,7 @@ if (container) {
   const root = createRoot(container);
 
   root.render(
-    <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>,
   );
