@@ -18,7 +18,7 @@ jobs:
       - name: build
         run: yarn build;
       - name: copy
-        uses: appleboy/ssh-action
+        uses: appleboy/ssh-action@master
         with:
           script: |
             rm -r ../var/www/ariqun_ru/data/www/ariqun.ru/*
