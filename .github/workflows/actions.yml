@@ -30,4 +30,5 @@ jobs:
             cd ~/../Sudoku
             git pull
             yarn build
+            rm -r ../var/www/ariqun_ru/data/www/ariqun.ru/*
             mv build/* ../var/www/ariqun_ru/data/www/ariqun.ru/
