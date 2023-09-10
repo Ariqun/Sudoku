@@ -28,8 +28,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           source: build/*
           target: ~/../var/www/ariqun_ru/data/www/ariqun.ru/
-          # script: |
-          #   cd ~/../Sudoku
-          #   git pull
-          #   rm -r ../var/www/ariqun_ru/data/www/ariqun.ru/*
-          #   mv build/* ../var/www/ariqun_ru/data/www/ariqun.ru/
+          strip_components: 1
+          rm: true
