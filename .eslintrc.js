@@ -13,6 +13,7 @@ module.exports = {
     sourceType: 'module',
     createDefaultProgram: true,
     project: tsConfigPath,
+    warnOnUnsupportedTypeScriptVersion: false,
   },
   env: {
     browser: true,

@@ -58,7 +58,6 @@ const FieldCell: React.FC<Props> = observer((props) => {
   };
 
   const handleKeyDown: KeyboardEventHandler = (event) => {
-    console.log(event.key);
     sudokuStore.setNumber(event.key);
   };
 

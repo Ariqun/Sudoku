@@ -1,8 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
-import Main from '../../pages/Main';
-import Decision from '../../pages/Decision';
+import Main from 'pages/Main';
+import Decision from 'pages/Decision';
 
 const AppRouter: React.FC = () => (
   <Routes>

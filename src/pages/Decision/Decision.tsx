@@ -26,7 +26,7 @@ const Decision: React.FC = observer(() => {
       sudokuStore.solveSudoku();
     }
   };
-  console.log(isError);
+
   return (
     <Layout>
       <Field />
